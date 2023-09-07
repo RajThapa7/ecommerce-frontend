@@ -19,7 +19,7 @@ export function MyCarousel() {
             <span
               key={i}
               className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
-                activeIndex === i ? "w-8 bg-cyan-500" : "w-4 bg-gray-500"
+                activeIndex === i ? "w-8 bg-orange-500" : "w-4 bg-gray-500"
               }`}
               onClick={() => setActiveIndex(i)}
             />
