@@ -10,7 +10,7 @@ export default function Page() {
     <>
       <SearchBar />
       <MyNavbar />
-      {/* <MyCarousel /> */}
+      <MyCarousel />
       <div className="flex flex-row">
         <ProductCard />
         <ProductCard />
