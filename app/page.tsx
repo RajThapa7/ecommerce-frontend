@@ -1,14 +1,16 @@
-import { MyCarousel } from "@/components/Carousel/Carousel";
-import Footer from "@/components/Footer/Footer";
-import { MyNavbar } from "@/components/Navbar";
-import ProductCard from "@/components/ProductCard/ProductCard";
-import SearchBar from "@/components/SearchBar/SearchBar";
+"use client";
+import ImageSlider from "@/components/ImageSlider/ImageSlider";
+import ProductShortDescription from "@/components/ProductShortDescription";
 import React from "react";
 
 export default function Page() {
   return (
-    <>
-      <SearchBar />
+    <div className="flex flex-row gap-16">
+      <div
+        id="portal"
+        className="absolute left-[400px] top-0 z-10 bg-gray-100"
+      ></div>
+      {/* <SearchBar />
       <MyNavbar />
       <MyCarousel />
       <div className="flex flex-row">
@@ -21,7 +23,11 @@ export default function Page() {
         <ProductCard />
         <ProductCard />
       </div>
-      <Footer />
-    </>
+      <Footer /> */}
+      {/* <ImageSlider className="" />
+      <div className="flex flex-grow basis-96">hello world friends ...</div> */}
+      <ImageSlider className="flex-1/3" />
+      <ProductShortDescription className="flex-2/3 w-full" />
+    </div>
   );
 }
