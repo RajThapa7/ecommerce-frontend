@@ -3,14 +3,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-// import "swiper/css/grid";
+import "swiper/css/grid";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 // import required modules
 import { useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { Navigation, Pagination } from "swiper/modules";
+import { Grid, Navigation, Pagination } from "swiper/modules";
 import CategoryTitle from "../CategoryTitle/CategoryTitle";
 import ProductCard from "../ProductCard/ProductCard";
 
@@ -38,25 +38,56 @@ export default function ProductSlider() {
       {/* carousel  */}
       <Swiper
         ref={swiperRef}
-        slidesPerView={4}
+        slidesPerView={"auto"}
         spaceBetween={30}
-        loop={true}
+        // loop={true}
+        grid={{
+          fill: "row",
+          rows: 2,
+        }}
         pagination={{
           clickable: true,
         }}
         onBeforeInit={(swiper) => {
           swiperRef.current = swiper;
         }}
-        modules={[Pagination, Navigation]}
-        className="!w-full !h-full !pb-10 !pt-6"
+        modules={[Pagination, Navigation, Grid]}
+        className="!w-full !h-full !pb-10 !pt-6 !px-6"
       >
-        <SwiperSlide className="sm:!w-fit !h-fit !opacity-100 !flex items-center justify-center">
+        <SwiperSlide className="!w-fit !h-fit !opacity-100 !flex items-center justify-center">
           <ProductCard />
         </SwiperSlide>
-        <SwiperSlide className="sm:!w-fit !h-fit !opacity-100 !flex items-center justify-center">
+        <SwiperSlide className="!w-fit !h-fit !opacity-100 !flex items-center justify-center">
           <ProductCard />
         </SwiperSlide>
-        <SwiperSlide className="sm:!w-fit !h-fit !opacity-100 !flex items-center justify-center">
+        <SwiperSlide className="!w-fit !h-fit !opacity-100 !flex items-center justify-center">
+          <ProductCard />
+        </SwiperSlide>
+        <SwiperSlide className="!w-fit !h-fit !opacity-100 !flex items-center justify-center">
+          <ProductCard />
+        </SwiperSlide>
+        <SwiperSlide className="!w-fit !h-fit !opacity-100 !flex items-center justify-center">
+          <ProductCard />
+        </SwiperSlide>
+        <SwiperSlide className="!w-fit !h-fit !opacity-100 !flex items-center justify-center">
+          <ProductCard />
+        </SwiperSlide>
+        <SwiperSlide className="!w-fit !h-fit !opacity-100 !flex items-center justify-center">
+          <ProductCard />
+        </SwiperSlide>
+        <SwiperSlide className="!w-fit !h-fit !opacity-100 !flex items-center justify-center">
+          <ProductCard />
+        </SwiperSlide>
+        <SwiperSlide className="!w-fit !h-fit !opacity-100 !flex items-center justify-center">
+          <ProductCard />
+        </SwiperSlide>
+        <SwiperSlide className="!w-fit !h-fit !opacity-100 !flex items-center justify-center">
+          <ProductCard />
+        </SwiperSlide>
+        <SwiperSlide className="!w-fit !h-fit !opacity-100 !flex items-center justify-center">
+          <ProductCard />
+        </SwiperSlide>
+        <SwiperSlide className="!w-fit !h-fit !opacity-100 !flex items-center justify-center">
           <ProductCard />
         </SwiperSlide>
       </Swiper>
