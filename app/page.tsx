@@ -1,19 +1,15 @@
 "use client";
-import ImageSlider from "@/components/ImageSlider/ImageSlider";
-import ProductShortDescription from "@/components/ProductShortDescription";
-import React from "react";
+import Footer from "@/components/Footer/Footer";
+import ProductSlider from "@/components/ProductSlider/ProductSlider";
 
 export default function Page() {
   return (
-    <div className="flex flex-row gap-16">
-      <div
-        id="portal"
-        className="absolute left-[400px] top-0 z-10 bg-gray-100"
-      ></div>
+    <div className="flex flex-col">
       {/* <SearchBar />
       <MyNavbar />
-      <MyCarousel />
-      <div className="flex flex-row">
+      <MyCarousel /> */}
+      <ProductSlider />
+      {/* <div className="flex flex-row">
         <ProductCard />
         <ProductCard />
         <ProductCard />
@@ -22,12 +18,8 @@ export default function Page() {
         <ProductCard />
         <ProductCard />
         <ProductCard />
-      </div>
-      <Footer /> */}
-      {/* <ImageSlider className="" />
-      <div className="flex flex-grow basis-96">hello world friends ...</div> */}
-      <ImageSlider className="flex-1/3" />
-      <ProductShortDescription className="flex-2/3 w-full" />
+      </div> */}
+      <Footer />
     </div>
   );
 }

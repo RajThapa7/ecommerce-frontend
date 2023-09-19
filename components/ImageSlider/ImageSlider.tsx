@@ -107,7 +107,7 @@ export default function ImageSlider({ className }: { className?: string }) {
         className="mySwiper !w-full"
       >
         <SwiperSlide>
-          <div className="w-[100px] relative pt-[100%]">
+          <div className="w-[70px] relative pt-[100%]">
             <Image
               src="https://swiperjs.com/demos/images/nature-1.jpg"
               alt="profile"
@@ -119,7 +119,7 @@ export default function ImageSlider({ className }: { className?: string }) {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-[100px] relative pt-[100%]">
+          <div className="w-[70px] relative pt-[100%]">
             <Image
               src="https://swiperjs.com/demos/images/nature-1.jpg"
               alt="profile"
@@ -131,7 +131,7 @@ export default function ImageSlider({ className }: { className?: string }) {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-[100px] relative pt-[100%]">
+          <div className="w-[70px] relative pt-[100%]">
             <Image
               src="https://swiperjs.com/demos/images/nature-1.jpg"
               alt="profile"
@@ -143,7 +143,7 @@ export default function ImageSlider({ className }: { className?: string }) {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-[100px] relative pt-[100%]">
+          <div className="w-[70px] relative pt-[100%]">
             <Image
               src="https://swiperjs.com/demos/images/nature-1.jpg"
               alt="profile"
@@ -155,7 +155,7 @@ export default function ImageSlider({ className }: { className?: string }) {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-[100px] relative pt-[100%]">
+          <div className="w-[70px] relative pt-[100%]">
             <Image
               src="https://swiperjs.com/demos/images/nature-1.jpg"
               alt="profile"
@@ -167,7 +167,7 @@ export default function ImageSlider({ className }: { className?: string }) {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-[100px] relative pt-[100%]">
+          <div className="w-[70px] relative pt-[100%]">
             <Image
               src="https://swiperjs.com/demos/images/nature-1.jpg"
               alt="profile"

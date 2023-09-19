@@ -1,10 +1,10 @@
 "use client";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import {
-  Carousel,
-  Typography,
   Button,
+  Carousel,
   IconButton,
+  Typography,
 } from "@material-tailwind/react";
 import { carouselData } from "./carouselData";
 

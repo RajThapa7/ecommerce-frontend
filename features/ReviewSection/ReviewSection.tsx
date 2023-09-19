@@ -4,8 +4,8 @@ import ReviewItem from "@/components/ReviewItem/ReviewItem";
 
 export default function ReviewSection() {
   return (
-    <div className="flex flex-col gap-16 border-gray-300 border-[1px] px-10 pt-6 pb-10 rounded-lg">
-      <div className="flex flex-col lg:flex-row justify-between">
+    <div className="flex flex-col gap-16 ">
+      <div className="flex flex-col lg:flex-row justify-between gap-12 gap-x-8">
         <OverallRating />
         <ReviewForm />
       </div>

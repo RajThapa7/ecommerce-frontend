@@ -11,12 +11,7 @@ const data = {
 
 export default function ProductDetail({ className }: { className?: string }) {
   return (
-    <div
-      className={classNames(
-        className,
-        "px-10 border-[1px] border-gray-300 rounded-lg pt-6 pb-10"
-      )}
-    >
+    <div className={classNames(className)}>
       <h2 className="font-semibold text-gray-900 mb-6">
         Product description of HP Victus 15, i5 12th gen, 512GB SSD, 16GB RAM
       </h2>

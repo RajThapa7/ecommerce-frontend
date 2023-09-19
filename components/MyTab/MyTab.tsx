@@ -56,7 +56,7 @@ export function MyTab() {
           <TabPanel
             key={value}
             value={value}
-            className="!p-0 !font-medium !text-black"
+            className="!font-medium !text-black border-gray-300 rounded-lg border-[1px] p-10"
           >
             {desc}
           </TabPanel>

@@ -19,7 +19,7 @@
 
 .swiper {
   width: 100%;
-  height: 100px;
+  height: 70px;
   margin-left: 0 !important;
 }
 
@@ -27,6 +27,10 @@
 .mySwiper2 {
   height: 90%;
   width: 100%;
+}
+
+.mySwiper2 .swiper-slide {
+  height: 400px !important;
 }
 
 /* thumb slider  */
@@ -37,7 +41,7 @@
 
 .mySwiper .swiper-slide {
   opacity: 0.5;
-  width: 100px !important;
+  width: 70px !important;
 }
 
 .mySwiper .swiper-slide-thumb-active {

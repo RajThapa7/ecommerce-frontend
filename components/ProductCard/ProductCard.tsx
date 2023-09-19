@@ -2,7 +2,6 @@
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React from "react";
 import { MyTooltip } from "../Tooltip/Tooltip";
 
 export default function ProductCard() {
@@ -15,7 +14,7 @@ export default function ProductCard() {
   return (
     <Link
       href={"/login"}
-      className="group relative block overflow-hidden transition-smooth ring-0 w-fit hover:ring-1 ring-gray-400"
+      className="group relative block overflow-hidden transition-smooth ring-0 w-fit max-w-sm hover:ring-1 ring-gray-400 h-full"
     >
       <MyTooltip content="Add to wishlist">
         <button
@@ -58,14 +57,18 @@ export default function ProductCard() {
 
           {reducedPrice ? (
             <>
-              <p className="mt-1.5 text-lg text-red-500">Rs.{reducedPrice}</p>
+              <p className="mt-1.5 text-lg text-red-500 text-left ml-1.5">
+                Rs.{reducedPrice}
+              </p>
               <div className="flex flex-row justify-center items-center gap-2">
                 <p className="text-sm text-gray-500 line-through">Rs.{price}</p>
                 <p className="text-gray-900 text-sm">-{discountPercentage}%</p>
               </div>
             </>
           ) : (
-            <p className="mt-1.5 text-lg text-gray-700">Rs.{price}</p>
+            <p className="mt-1.5 text-lg text-gray-700 text-left ml-1.5">
+              Rs.{price}
+            </p>
           )}
         </div>
         <div className="bg-orange-400 rounded-full w-fit h-fit p-2 transition-smooth hover:bg-orange-600">
