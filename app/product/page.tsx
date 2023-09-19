@@ -1,5 +1,5 @@
 import ImageSlider from "@/components/ImageSlider/ImageSlider";
-import ProductDetail from "@/components/ProductDetail/ProductDetail";
+import { MyTab } from "@/components/MyTab/MyTab";
 import ProductShortDescription from "@/components/ProductShortDescription";
 
 export default function ProductPage() {
@@ -13,7 +13,10 @@ export default function ProductPage() {
         <ImageSlider className="w-full md:w-[50%] lg:w-[40%]" />
         <ProductShortDescription className="w-full md:w-[50%] lg:w-[60%]" />
       </div>
-      <ProductDetail className="mt-12" />
+      {/* <Review /> */}
+      <MyTab />
+      {/* <ReviewSection /> */}
+      {/* <ProductDetail className="mt-12" /> */}
     </div>
   );
 }

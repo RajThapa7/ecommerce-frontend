@@ -75,16 +75,16 @@ export default function ProductShortDescription({
       </div>
 
       <div className="flex flex-col gap-8">
-        {reducedPrice ? (
+        {false ? (
           <div>
-            <p className="mt-1.5 text-3xl text-red-500">Rs.{reducedPrice}</p>
+            <p className="mt-1.5 text-3xl text-red-500">Rs. {reducedPrice}</p>
             <div className="flex flex-row gap-2 items-center">
               <p className="text-lg text-gray-500 line-through">Rs.{price}</p>
               <p className="text-gray-900">-{discountPercentage}%</p>
             </div>
           </div>
         ) : (
-          <p className="mt-1.5 text-lg text-gray-700">Rs.{price}</p>
+          <p className="mt-1.5 text-3xl text-yellow-900">Rs. {price}</p>
         )}
         <QuantityInput />
         <div className="flex flex-row gap-4">

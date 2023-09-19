@@ -97,50 +97,83 @@ export default function ImageSlider({ className }: { className?: string }) {
         </SwiperSlide>
       </Swiper>
 
-      {/* thumbnails button  */}
-
       <Swiper
         onSwiper={setThumbsSwiper}
-        loop={true}
-        spaceBetween={4}
+        spaceBetween={5}
         slidesPerView={4}
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper flex !w-full !h-fit"
+        className="mySwiper !w-full"
       >
         <SwiperSlide>
-          <div className="w-full relative pt-[100%]">
+          <div className="w-[100px] relative pt-[100%]">
             <Image
               src="https://swiperjs.com/demos/images/nature-1.jpg"
               alt="profile"
               objectFit="fill"
               fill
-              className="w-full h-full top-0 left-0 object-fill"
+              className="w-full top-0 left-0 object-fill"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full relative pt-[100%]">
+          <div className="w-[100px] relative pt-[100%]">
             <Image
               src="https://swiperjs.com/demos/images/nature-1.jpg"
               alt="profile"
               objectFit="fill"
               fill
-              className="w-full h-full top-0 left-0 object-fill"
+              className="w-full top-0 left-0 object-fill"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="w-full relative pt-[100%]">
+          <div className="w-[100px] relative pt-[100%]">
             <Image
               src="https://swiperjs.com/demos/images/nature-1.jpg"
               alt="profile"
               objectFit="fill"
               fill
-              className="w-full h-full top-0 left-0 object-fill"
+              className="w-full top-0 left-0 object-fill"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="w-[100px] relative pt-[100%]">
+            <Image
+              src="https://swiperjs.com/demos/images/nature-1.jpg"
+              alt="profile"
+              objectFit="fill"
+              fill
+              className="w-full top-0 left-0 object-fill"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="w-[100px] relative pt-[100%]">
+            <Image
+              src="https://swiperjs.com/demos/images/nature-1.jpg"
+              alt="profile"
+              objectFit="fill"
+              fill
+              className="w-full top-0 left-0 object-fill"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="w-[100px] relative pt-[100%]">
+            <Image
+              src="https://swiperjs.com/demos/images/nature-1.jpg"
+              alt="profile"
+              objectFit="fill"
+              fill
+              className="w-full top-0 left-0 object-fill"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
