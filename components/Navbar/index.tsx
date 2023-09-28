@@ -139,7 +139,7 @@ export function MyNavbar() {
   }, []);
 
   return (
-    <Navbar className="w-full px-4 py-2 max-w-[100%]">
+    <Navbar className="w-full px-4 py-2 max-w-[100%] !rounded-none">
       <div className="flex items-center justify-between text-blue-gray-900">
         <div className="hidden lg:flex flex-1 justify-start">
           {/* <NavList /> */}

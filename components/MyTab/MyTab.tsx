@@ -51,7 +51,7 @@ export function MyTab() {
           </Tab>
         ))}
       </TabsHeader>
-      <TabsBody className="!p-0 -mt-[3px]">
+      <TabsBody className="!p-0 -mt-[2px]">
         {data.map(({ value, desc }) => (
           <TabPanel
             key={value}

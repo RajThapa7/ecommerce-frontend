@@ -1,11 +1,7 @@
 "use client";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
-import {
-  Button,
-  Carousel,
-  IconButton,
-  Typography,
-} from "@material-tailwind/react";
+import { Button, Carousel, IconButton } from "@material-tailwind/react";
+import Image from "next/image";
 import { carouselData } from "./carouselData";
 
 export function MyCarousel() {
@@ -50,31 +46,27 @@ export function MyCarousel() {
       )}
     >
       {carouselData.map(({ description, id, price, title }) => (
-        <div key={id} className="relative h-[450px] w-full">
-          <img
+        <div key={id} className="relative md:h-[500px] h-[400px] w-full">
+          <Image
+            fill
             src="https://transvelo.github.io/electro-html/2.0/assets/img/1920X422/img2.jpg"
             alt="image 1"
             className="h-full w-full object-cover"
+            sizes="(min-width: 480px) 384px, calc(92.5vw - 42px)"
           />
           <div className="absolute inset-0 h-full w-full flex flex-row justify-between">
-            <div className="px-24 flex flex-col items-start justify-center w-1/2">
-              <Typography
-                variant="h1"
-                className="text-orange-500 mb-4 text-lg uppercase"
-              >
+            <div className="px-12 md:px-24 flex flex-col items-start flex-1 justify-center w-full md:w-1/2">
+              <p className="text-orange-500 mb-4 lg:text-lg text-sm font-bold uppercase">
                 {title}
-              </Typography>
-              <Typography
-                variant="lead"
-                className="mb-12 opacity-80 text-gray-900 uppercase text-5xl font-semibold leading-snug"
-              >
+              </p>
+              <p className="mb-10 opacity-80 text-gray-900 uppercase text-2xl lg:text-4xl font-semibold leading-snug">
                 {description}
-              </Typography>
+              </p>
               <div className="mb-6">
                 <p className="text-gray-600">From</p>
                 <p className="flex flex-row items-start gap-1 font-semibold text-gray-800">
                   <span className="text-xl">Rs</span>
-                  <span className="text-5xl">{price}</span>
+                  <span className="lg:text-5xl text-3xl">{price}</span>
                 </p>
               </div>
               <div className="flex justify-center gap-2">
@@ -86,11 +78,15 @@ export function MyCarousel() {
                 </Button>
               </div>
             </div>
-            <img
-              src="https://transvelo.github.io/electro-html/2.0/assets/img/468X417/img1.png"
-              alt="logo"
-              className="h-full"
-            />
+            <div className="w-1/2 hidden relative md:flex flex-1">
+              <Image
+                fill
+                src="https://transvelo.github.io/electro-html/2.0/assets/img/468X417/img1.png"
+                alt="logo"
+                className="h-full w-full object-contain"
+                sizes="(min-width: 480px) 384px, calc(92.5vw - 42px)"
+              />
+            </div>
           </div>
         </div>
       ))}

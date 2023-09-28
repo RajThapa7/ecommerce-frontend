@@ -21,7 +21,7 @@ export default function ProductDetail({ className }: { className?: string }) {
           {Object.entries(data).map(([key, value]) => (
             <tr
               key={key}
-              className="border-b-2 border-gray-300 hover:bg-gray-200 text-gray-900 text-sm"
+              className="border-b-2 border-gray-300 last:border-none hover:bg-gray-200 text-gray-900 text-sm"
             >
               <td className="pb-2 pt-3 w-[40%] px-5 break-words font-semibold">
                 {key}

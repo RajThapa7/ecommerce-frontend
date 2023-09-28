@@ -1,11 +1,10 @@
 "use client";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { MyTooltip } from "../Tooltip/Tooltip";
 
 export default function ProductCard() {
-  const router = useRouter();
   const reducedPrice = 800;
   const price = 999;
 
@@ -14,7 +13,7 @@ export default function ProductCard() {
   return (
     <Link
       href={"/login"}
-      className="group relative block overflow-hidden transition-smooth ring-0 w-fit max-w-sm hover:ring-1 ring-gray-400 h-full"
+      className="group relative block overflow-hidden transition-smooth outline-0 w-full max-w-sm hover:outline-1 outline-gray-300 h-fit outline"
     >
       <MyTooltip content="Add to wishlist">
         <button
@@ -39,11 +38,15 @@ export default function ProductCard() {
         </button>
       </MyTooltip>
 
-      <img
-        src="https://images.unsplash.com/photo-1599481238640-4c1288750d7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80"
-        alt=""
-        className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72"
-      />
+      <div className="w-full mx-auto relative h-56 aspect-video">
+        <Image
+          src="https://images.unsplash.com/photo-1599481238640-4c1288750d7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80"
+          alt="profile"
+          fill
+          className="object-fill transition duration-500 group-hover:scale-105"
+          sizes="(min-width: 480px) 384px, calc(92.5vw - 42px)"
+        />
+      </div>
 
       <div className="relative border border-gray-100 bg-white p-6 flex flex-row justify-between">
         <div className="flex flex-col">
