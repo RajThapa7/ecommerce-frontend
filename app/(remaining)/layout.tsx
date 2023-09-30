@@ -7,11 +7,13 @@ import "../globals.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
 });
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
-    <html className={montserrat.className}>
+    <html className={montserrat.variable}>
       <body>
         <div className="">
           <SearchBar />

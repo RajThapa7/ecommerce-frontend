@@ -1,19 +1,24 @@
 "use client";
+import { IProductCard } from "@/types";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
 import { MyTooltip } from "../Tooltip/Tooltip";
 
-export default function ProductCard() {
-  const reducedPrice = 800;
-  const price = 999;
-
-  const discountPercentage = Math.round(((price - reducedPrice) * 100) / price);
+export default function ProductCard({
+  img,
+  price,
+  title,
+  reducedPrice,
+  tag,
+}: IProductCard) {
+  const discountPercentage =
+    reducedPrice && Math.round(((price - reducedPrice) * 100) / price);
 
   return (
     <Link
       href={"/login"}
-      className="group relative block overflow-hidden transition-smooth outline-0 w-full max-w-sm hover:outline-1 outline-gray-300 h-fit outline"
+      className="group relative block overflow-hidden transition-smooth outline-1 w-full max-w-sm outline-gray-300 hover:outline-gray-400 h-fit outline"
     >
       <MyTooltip content="Add to wishlist">
         <button
@@ -40,22 +45,22 @@ export default function ProductCard() {
 
       <div className="w-full mx-auto relative h-56 aspect-video">
         <Image
-          src="https://images.unsplash.com/photo-1599481238640-4c1288750d7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80"
+          src={img}
           alt="profile"
           fill
-          className="object-fill transition duration-500 group-hover:scale-105"
+          className="object-contain transition duration-500 group-hover:scale-105"
           sizes="(min-width: 480px) 384px, calc(92.5vw - 42px)"
         />
       </div>
 
-      <div className="relative border border-gray-100 bg-white p-6 flex flex-row justify-between">
+      <div className="relative border-t-2 border-t-gray-200 bg-white p-6 flex flex-row justify-between">
         <div className="flex flex-col">
           <span className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium w-fit">
-            Limited Offer
+            {tag}
           </span>
 
           <h3 className="mt-4 group-hover:decoration-blue-600 underline decoration-white transition-smooth text-lg text-blue-600 font-semibold">
-            Robot Toy
+            {title}
           </h3>
 
           {reducedPrice ? (

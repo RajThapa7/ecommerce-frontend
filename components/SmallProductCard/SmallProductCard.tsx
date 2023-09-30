@@ -1,13 +1,18 @@
+import type { IProductCard } from "@/types";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
 import { MyTooltip } from "../Tooltip/Tooltip";
 
-export default function SmallProductCard() {
-  const reducedPrice = 800;
-  const price = 999;
-
-  const discountPercentage = Math.round(((price - reducedPrice) * 100) / price);
+export default function SmallProductCard({
+  img,
+  price,
+  title,
+  reducedPrice,
+  tag,
+}: IProductCard) {
+  const discountPercentage =
+    reducedPrice && Math.round(((price - reducedPrice) * 100) / price);
   return (
     <Link
       href={"/login"}
@@ -39,9 +44,7 @@ export default function SmallProductCard() {
 
         <div className="relative w-full aspect-video">
           <Image
-            src={
-              "https://transvelo.github.io/electro-html/2.0/assets/img/150X140/img1.jpg"
-            }
+            src={img}
             // src="https://images.unsplash.com/photo-1599481238640-4c1288750d7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80"
             alt="profile"
             fill
@@ -54,11 +57,11 @@ export default function SmallProductCard() {
       <div className="relative bg-white p-6 flex flex-row justify-between w-1/2 flex-1 items-end">
         <div className="flex flex-col">
           <span className="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium w-fit">
-            Limited Offer
+            {tag}
           </span>
 
           <h3 className="mt-4 group-hover:decoration-blue-600 underline decoration-white transition-smooth text-lg text-blue-600 font-semibold">
-            Robot Toy
+            {title}
           </h3>
 
           {reducedPrice ? (

@@ -20,9 +20,13 @@ import {
   ListItemSuffix,
   Typography,
 } from "@material-tailwind/react";
+import Image from "next/image";
+import logo from "public/elogo.png";
 import React from "react";
+import { RiCloseFill } from "react-icons/ri";
+import MyButton from "../Button/Button";
 
-export function Sidebar() {
+export function Sidebar({ closeDrawer }: { closeDrawer: () => void }) {
   const [open, setOpen] = React.useState(0);
 
   const handleOpen = (value: number) => {
@@ -30,11 +34,12 @@ export function Sidebar() {
   };
 
   return (
-    <Card className="h-[calc(100vh-2rem)] bg-red-200  p-4 pr-10 shadow-xl shadow-blue-gray-900/5">
-      <div className="mb-2 flex items-center gap-4 p-4">
-        <Typography variant="h5" color="blue-gray">
-          Sidebar
-        </Typography>
+    <Card className="relative h-[calc(100vh-2rem)] z-100 p-4 pr-10 shadow-xl shadow-blue-gray-900/5">
+      <div className="justify-between mb-2 flex items-center gap-4 py-4 pl-4">
+        <Image src={logo} alt="logo" width={150} />
+        <MyButton variant="text" onClick={() => closeDrawer()}>
+          <RiCloseFill size={24} />
+        </MyButton>
       </div>
       <List>
         <Accordion

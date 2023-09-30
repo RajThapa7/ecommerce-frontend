@@ -1,22 +1,33 @@
 "use client";
-
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
+import { IProductCard } from "@/types";
+import { useRef, useState } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
-// import required modules
-import { useRef, useState } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Grid, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { SwiperOptions } from "swiper/types";
 import CategoryTitle from "../CategoryTitle/CategoryTitle";
+import ProductCard from "../ProductCard/ProductCard";
 import SmallProductCard from "../SmallProductCard/SmallProductCard";
 
-export default function ProductSlider() {
+interface IProductSliderProps {
+  breakpoints: {
+    [width: number]: SwiperOptions;
+  };
+  title: string;
+  data: IProductCard[];
+  cardType?: "small" | "default";
+}
+
+export default function ProductSlider({
+  breakpoints,
+  title,
+  data,
+  cardType = "default",
+}: IProductSliderProps) {
   const swiperRef = useRef<Swiper>();
   const [isStart, setIsStart] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -24,7 +35,7 @@ export default function ProductSlider() {
   return (
     <div className="">
       <div className="relative">
-        <CategoryTitle />
+        <CategoryTitle title={title} />
         <div className="absolute top-2 right-6 flex flex-row gap-2 items-center justify-center">
           <button
             onClick={() => swiperRef.current?.swiper.slidePrev()}
@@ -47,45 +58,8 @@ export default function ProductSlider() {
       {/* carousel  */}
       <Swiper
         ref={swiperRef}
-        // slidesPerView={"auto"}
         slidesPerView={1}
-        breakpoints={{
-          // 540: {
-          //   slidesPerView: 2,
-          //   grid: {
-          //     fill: "row",
-          //     rows: 2,
-          //   },
-          // },
-          // 840: {
-          //   slidesPerView: 3,
-          //   grid: {
-          //     fill: "row",
-          //     rows: 2,
-          //   },
-          // },
-          700: {
-            slidesPerView: 2,
-            grid: {
-              fill: "row",
-              rows: 2,
-            },
-          },
-          1000: {
-            slidesPerView: 3,
-            grid: {
-              fill: "row",
-              rows: 2,
-            },
-          },
-          1320: {
-            slidesPerView: 2,
-            grid: {
-              fill: "row",
-              rows: 2,
-            },
-          },
-        }}
+        breakpoints={breakpoints}
         spaceBetween={30}
         onReachBeginning={() => setIsStart(true)}
         onReachEnd={() => setIsEnd(true)}
@@ -105,63 +79,18 @@ export default function ProductSlider() {
         modules={[Pagination, Navigation, Grid]}
         className="!w-full !h-full !pb-10 !pt-6 !px-[2px]"
       >
-        {/* <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <ProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <ProductCard />
-        </SwiperSlide> */}
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <SmallProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <SmallProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <SmallProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <SmallProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <SmallProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <SmallProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <SmallProductCard />
-        </SwiperSlide>
-        <SwiperSlide className="!h-fit !opacity-100 !flex items-center justify-center">
-          <SmallProductCard />
-        </SwiperSlide>
+        {data.map(({ img, price, title, reducedPrice, tag }) => (
+          <SwiperSlide
+            key={title}
+            className="!h-fit !opacity-100 !flex items-center justify-center"
+          >
+            {cardType === "default" ? (
+              <ProductCard {...{ img, price, title, reducedPrice, tag }} />
+            ) : (
+              <SmallProductCard {...{ img, price, title, reducedPrice, tag }} />
+            )}
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

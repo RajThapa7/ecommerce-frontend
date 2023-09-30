@@ -1,12 +1,11 @@
 "use client";
 import { BellIcon } from "@heroicons/react/24/solid";
 import {
+  Avatar,
   Menu,
   MenuHandler,
-  MenuList,
   MenuItem,
-  IconButton,
-  Avatar,
+  MenuList,
   Typography,
 } from "@material-tailwind/react";
 

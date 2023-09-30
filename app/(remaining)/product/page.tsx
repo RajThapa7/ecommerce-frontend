@@ -1,7 +1,6 @@
 import ImageSlider from "@/components/ImageSlider/ImageSlider";
 import { MyTab } from "@/components/MyTab/MyTab";
 import ProductShortDescription from "@/components/ProductShortDescription";
-import ProductSlider from "@/components/ProductSlider/ProductSlider";
 
 export default function ProductPage() {
   return (
@@ -17,7 +16,7 @@ export default function ProductPage() {
         <ProductShortDescription className="w-full md:w-[50%] lg:w-[60%]" />
       </div>
       <MyTab />
-      <ProductSlider />
+      {/* <ProductSlider /> */}
     </div>
   );
 }

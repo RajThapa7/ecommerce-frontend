@@ -1,5 +1,51 @@
 import ProductSlider from "@/components/ProductSlider/ProductSlider";
+import { IProductCard } from "@/types";
 import Image from "next/image";
+
+const data: IProductCard[] = [
+  {
+    img: "https://transvelo.github.io/electro-html/2.0/assets/img/150X140/img1.jpg",
+    price: 999,
+    reducedPrice: 800,
+    title: "Ipad Pro 2023",
+    tag: "Latest",
+  },
+  {
+    img: "https://transvelo.github.io/electro-html/2.0/assets/img/150X140/img1.jpg",
+    price: 999,
+    // reducedPrice: 800,
+    title: "Ipad Pro 2023",
+    tag: "Latest",
+  },
+  {
+    img: "https://transvelo.github.io/electro-html/2.0/assets/img/150X140/img1.jpg",
+    price: 999,
+    // reducedPrice: 800,
+    title: "Ipad Pro 2023",
+    tag: "Latest",
+  },
+  {
+    img: "https://transvelo.github.io/electro-html/2.0/assets/img/150X140/img1.jpg",
+    price: 999,
+    reducedPrice: 800,
+    title: "Ipad Pro 2023",
+    tag: "Latest",
+  },
+  {
+    img: "https://transvelo.github.io/electro-html/2.0/assets/img/150X140/img1.jpg",
+    price: 999,
+    reducedPrice: 800,
+    title: "Ipad Pro 2023",
+    tag: "Latest",
+  },
+  {
+    img: "https://transvelo.github.io/electro-html/2.0/assets/img/150X140/img1.jpg",
+    price: 999,
+    reducedPrice: 800,
+    title: "Ipad Pro 2023",
+    tag: "Latest",
+  },
+];
 
 export default function FeaturedSection() {
   return (
@@ -20,7 +66,34 @@ export default function FeaturedSection() {
           </div>
         </div>
         <div className="w-full 2xl:w-1/2">
-          <ProductSlider />
+          <ProductSlider
+            title="Television"
+            breakpoints={{
+              700: {
+                slidesPerView: 2,
+                grid: {
+                  fill: "row",
+                  rows: 2,
+                },
+              },
+              1000: {
+                slidesPerView: 3,
+                grid: {
+                  fill: "row",
+                  rows: 2,
+                },
+              },
+              1320: {
+                slidesPerView: 2,
+                grid: {
+                  fill: "row",
+                  rows: 2,
+                },
+              },
+            }}
+            data={data}
+            cardType="small"
+          />
         </div>
       </div>
     </div>

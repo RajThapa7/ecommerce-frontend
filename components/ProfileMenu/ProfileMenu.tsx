@@ -1,10 +1,10 @@
 "use client";
 import {
+  Avatar,
   Menu,
   MenuHandler,
-  MenuList,
   MenuItem,
-  Avatar,
+  MenuList,
   Typography,
 } from "@material-tailwind/react";
 
@@ -13,6 +13,7 @@ export function ProfileMenu() {
     <Menu>
       <MenuHandler>
         <Avatar
+          size="sm"
           variant="circular"
           alt="tania andrew"
           className="cursor-pointer"

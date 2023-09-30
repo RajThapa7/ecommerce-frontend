@@ -1,19 +1,22 @@
+"use client";
 import { MyCarousel } from "@/components/Carousel/Carousel";
 import Footer from "@/components/Footer/Footer";
 import { MyNavbar } from "@/components/Navbar";
 import SearchBar from "@/components/SearchBar/SearchBar";
+import FeaturedSection from "@/features/FeaturedSection/FeaturedSection";
 import { Montserrat } from "next/font/google";
 import { PropsWithChildren } from "react";
 import "../globals.css";
-import FeaturedSection from "@/features/FeaturedSection/FeaturedSection";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
+  variable: "--font-montserrat",
+  display: "swap",
 });
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
-    <html className={montserrat.className}>
+    <html className={montserrat.variable}>
       <body>
         <div className="">
           <SearchBar />
