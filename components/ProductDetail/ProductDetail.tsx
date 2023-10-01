@@ -12,7 +12,7 @@ const data = {
 export default function ProductDetail({ className }: { className?: string }) {
   return (
     <div className={classNames(className)}>
-      <h2 className="font-semibold text-gray-900 mb-6">
+      <h2 className="mb-6 font-semibold text-gray-900">
         Product description of HP Victus 15, i5 12th gen, 512GB SSD, 16GB RAM
       </h2>
 
@@ -21,12 +21,12 @@ export default function ProductDetail({ className }: { className?: string }) {
           {Object.entries(data).map(([key, value]) => (
             <tr
               key={key}
-              className="border-b-2 border-gray-300 last:border-none hover:bg-gray-200 text-gray-900 text-sm"
+              className="border-b-2 border-gray-300 text-sm text-gray-900 last:border-none hover:bg-gray-200"
             >
-              <td className="pb-2 pt-3 w-[40%] px-5 break-words font-semibold">
+              <td className="w-[40%] break-words px-5 pb-2 pt-3 font-semibold">
                 {key}
               </td>
-              <td className="pb-2 pt-3 w-[60%] px-5 break-words">{value}</td>
+              <td className="w-[60%] break-words px-5 pb-2 pt-3">{value}</td>
             </tr>
           ))}
         </tbody>

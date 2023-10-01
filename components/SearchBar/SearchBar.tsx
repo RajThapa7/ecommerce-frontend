@@ -36,28 +36,28 @@ export const SearchTab = ({
     <motion.div
       transition={{ ease: "linear" }}
       animate={isOpen ? { y: 0 } : { y: -200 }}
-      className={`z-50 left-0 w-full shadow-lg absolute right-0 bg-gray-200`}
+      className={`absolute left-0 right-0 z-50 w-full bg-gray-200 shadow-lg`}
     >
-      <div className="px-4 py-4 lg:hidden flex flex-col flex-1 relative">
+      <div className="relative flex flex-1 flex-col px-4 py-4 lg:hidden">
         <input
           type={"text"}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="search karnali"
-          className="w-full border-none rounded-lg ring-1 text-gray-800 ring-gray-300 focus:ring-orange-500 px-8 py-2 outline-none"
+          className="w-full rounded-lg border-none px-8 py-2 text-gray-800 outline-none ring-1 ring-gray-300 focus:ring-orange-500"
         />
-        <button className="bg-orange-400 absolute right-4 max-h-fit h-10 rounded-r-lg px-3 transition-smooth hover:bg-orange-500">
+        <button className="transition-smooth absolute right-4 h-10 max-h-fit rounded-r-lg bg-orange-400 px-3 hover:bg-orange-500">
           <MagnifyingGlassIcon width={20} color="white" strokeWidth={20} />
         </button>
         {searchTerm && (
-          <div className="bg-white shadow-xl px-4 py-4 rounded-md absolute w-[calc(100%-24px)] top-[59px] left-3">
+          <div className="absolute left-3 top-[59px] w-[calc(100%-24px)] rounded-md bg-white px-4 py-4 shadow-xl">
             <table className="w-full border-collapse">
               <tbody className="">
                 {Object.entries(data).map(([key, value]) => (
                   <tr
                     key={key}
-                    className="border-b-2 border-gray-300 last:border-none hover:bg-gray-200 text-gray-900 text-sm cursor-pointer"
+                    className="cursor-pointer border-b-2 border-gray-300 text-sm text-gray-900 last:border-none hover:bg-gray-200"
                   >
-                    <td className="pb-2 pt-3 w-full px-5 break-words font-semibold">
+                    <td className="w-full break-words px-5 pb-2 pt-3 font-semibold">
                       {key}
                     </td>
                   </tr>
@@ -79,12 +79,12 @@ export default function SearchBar() {
   useEffect(() => {
     window.addEventListener(
       "resize",
-      () => window.innerWidth >= 960 && setOpen(false)
+      () => window.innerWidth >= 960 && setOpen(false),
     );
   }, []);
   return (
     <div>
-      <div className="relative py-4 bg-cyan-500 flex flex-row justify-between lg:justify-around px-2 gap-x-12 md:px-6 overflow-x-hidden">
+      <div className="relative flex flex-row justify-between gap-x-12 overflow-x-hidden bg-cyan-500 px-2 py-4 md:px-6 lg:justify-around">
         {/* mobile menu  */}
         <div className="flex flex-row">
           <IconButton
@@ -101,19 +101,19 @@ export default function SearchBar() {
           </IconButton>
           <Image src={logo} alt="logo" width={100} />
         </div>
-        <div className="hidden lg:flex flex-row flex-1 relative">
+        <div className="relative hidden flex-1 flex-row lg:flex">
           <input
             type={"text"}
             placeholder="search karnali"
-            className="w-full border-none rounded-lg ring-orange-500 focus:ring-2 px-8 outline-none"
+            className="w-full rounded-lg border-none px-8 outline-none ring-orange-500 focus:ring-2"
           />
-          <button className="bg-orange-400 absolute right-0 h-full rounded-r-lg px-3 transition-smooth hover:bg-orange-500">
+          <button className="transition-smooth absolute right-0 h-full rounded-r-lg bg-orange-400 px-3 hover:bg-orange-500">
             <MagnifyingGlassIcon width={20} color="white" strokeWidth={20} />
           </button>
         </div>
 
         {/* buttons  */}
-        <div className="justify-end flex">
+        <div className="flex justify-end">
           {/* <ProfileMenu /> */}
           <MyButton
             onClick={() => setIsSearchTabOpen((prev) => !prev)}
@@ -135,17 +135,17 @@ export default function SearchBar() {
             </MyTooltip>
           </MyButton>
 
-          <MyButton className="text-white !hidden lg:!flex" variant="text">
+          <MyButton className="!hidden text-white lg:!flex" variant="text">
             <NotificationsMenu />
           </MyButton>
 
-          <MyButton className="text-white !hidden lg:!flex" variant="text">
+          <MyButton className="!hidden text-white lg:!flex" variant="text">
             <MyTooltip content="Wishlist">
               <HeartIcon width={20} />
             </MyTooltip>
           </MyButton>
 
-          <MyButton className="text-white group" variant="text">
+          <MyButton className="group text-white" variant="text">
             <MyTooltip content="My Cart">
               <BadgeIcon />
             </MyTooltip>

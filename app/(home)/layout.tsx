@@ -23,7 +23,7 @@ export default function Layout({ children }: PropsWithChildren) {
           <MyNavbar />
 
           <MyCarousel />
-          <div className="max-w-7xl mx-auto px-8 2xl:px-0">{children}</div>
+          <div className="mx-auto max-w-7xl px-8 2xl:px-0">{children}</div>
           <FeaturedSection />
           <Footer />
         </div>
