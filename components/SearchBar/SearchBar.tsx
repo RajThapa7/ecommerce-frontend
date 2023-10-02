@@ -1,4 +1,5 @@
 "use client";
+import { useComponentVisible } from "@/hooks/useComponentVisible";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import {
   HeartIcon,
@@ -9,7 +10,7 @@ import { Drawer, IconButton } from "@material-tailwind/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import logo from "public/elogo.png";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { RiCloseFill } from "react-icons/ri";
 import { BadgeIcon } from "../BadgeIcon";
 import MyButton from "../Button/Button";
@@ -27,21 +28,36 @@ const data = {
 export const SearchTab = ({
   isOpen,
   setIsOpen,
+  searchTabRef,
 }: {
   isOpen: boolean;
   setIsOpen?: Dispatch<SetStateAction<boolean>>;
+  searchTabRef: any;
 }) => {
   const [searchTerm, setSearchTerm] = useState("");
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    isOpen && inputRef.current?.focus();
+  }, [inputRef, isOpen]);
+
+  useEffect(() => {
+    !isOpen && setSearchTerm("");
+  }, [isOpen]);
   return (
     <motion.div
+      ref={searchTabRef}
       transition={{ ease: "linear" }}
       animate={isOpen ? { y: 0 } : { y: -200 }}
       className={`absolute left-0 right-0 z-50 w-full bg-gray-200 shadow-lg`}
     >
-      <div className="relative flex flex-1 flex-col px-4 py-4 lg:hidden">
+      <div className="relative flex flex-1 flex-col px-4 py-4">
         <input
+          ref={inputRef}
           type={"text"}
           onChange={(e) => setSearchTerm(e.target.value)}
+          value={searchTerm}
           placeholder="search karnali"
           className="w-full rounded-lg border-none px-8 py-2 text-gray-800 outline-none ring-1 ring-gray-300 focus:ring-orange-500"
         />
@@ -72,7 +88,6 @@ export const SearchTab = ({
 };
 
 export default function SearchBar() {
-  const [isSearchTabOpen, setIsSearchTabOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const closeDrawer = () => setOpen(false);
 
@@ -82,6 +97,9 @@ export default function SearchBar() {
       () => window.innerWidth >= 960 && setOpen(false),
     );
   }, []);
+
+  const { ref, isComponentVisible, setIsComponentVisible } =
+    useComponentVisible(false);
   return (
     <div>
       <div className="relative flex flex-row justify-between gap-x-12 overflow-x-hidden bg-cyan-500 px-2 py-4 md:px-6 lg:justify-around">
@@ -116,12 +134,12 @@ export default function SearchBar() {
         <div className="flex justify-end">
           {/* <ProfileMenu /> */}
           <MyButton
-            onClick={() => setIsSearchTabOpen((prev) => !prev)}
+            onClick={() => setIsComponentVisible((prev) => !prev)}
             className="text-white lg:!hidden"
             variant="text"
           >
             <MyTooltip content="Search">
-              {isSearchTabOpen ? (
+              {isComponentVisible ? (
                 <RiCloseFill size={24} />
               ) : (
                 <MagnifyingGlassIcon width={20} />
@@ -157,7 +175,7 @@ export default function SearchBar() {
         </Drawer>
       </div>
       {/* search tab for smaller devices */}
-      <SearchTab isOpen={isSearchTabOpen} />
+      <SearchTab isOpen={isComponentVisible} searchTabRef={ref} />
     </div>
   );
 }
