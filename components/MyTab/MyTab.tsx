@@ -29,7 +29,7 @@ export function MyTab() {
   return (
     <Tabs value={activeTab}>
       <TabsHeader
-        className="rounded-none flex justify-center gap-6 border-blue-gray-50 bg-transparent p-0 !z-0"
+        className="!z-0 flex justify-center gap-6 rounded-none border-blue-gray-50 bg-transparent p-0"
         indicatorProps={{
           className:
             "bg-transparent border-b-2 border-gray-900 shadow-none rounded-none",
@@ -43,20 +43,20 @@ export function MyTab() {
             className={`
               ${
                 activeTab === value
-                  ? "text-gray-900 font-semibold"
+                  ? "font-semibold text-gray-900"
                   : "font-medium"
-              } text-lg pb-2 w-fit`}
+              } w-fit pb-2 text-lg`}
           >
             {label}
           </Tab>
         ))}
       </TabsHeader>
-      <TabsBody className="!p-0 -mt-[2px]">
+      <TabsBody className="-mt-[2px] !p-0">
         {data.map(({ value, desc }) => (
           <TabPanel
             key={value}
             value={value}
-            className="!font-medium !text-black border-gray-300 rounded-lg border-[1px] p-10"
+            className="rounded-lg border-[1px] border-gray-300 p-10 !font-medium !text-black"
           >
             {desc}
           </TabPanel>

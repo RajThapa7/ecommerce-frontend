@@ -8,6 +8,7 @@ import {
   MenuHandler,
   MenuList,
   Navbar,
+  Typography,
 } from "@material-tailwind/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -34,15 +35,15 @@ function NavListMenu({ title, navListMenuData }: INavListMenuProps) {
   const renderItems = navListMenuData.map(({ title, items }, key) => (
     <div className="flex items-center gap-3 rounded-lg" key={key}>
       <div>
-        <p className="flex items-center text-md font-bold text-gray-800">
+        <p className="text-md flex items-center font-bold text-gray-800">
           {title}
         </p>
-        <div className="flex flex-col gap-4 mt-5">
+        <div className="mt-5 flex flex-col gap-4">
           {items.map(({ id, title, link }) => (
             <Link
               href={link}
               key={id}
-              className="hover:decoration-gray-600 underline decoration-white transition-smooth"
+              className="transition-smooth underline decoration-white hover:decoration-gray-600"
             >
               {title}
             </Link>
@@ -62,7 +63,7 @@ function NavListMenu({ title, navListMenuData }: INavListMenuProps) {
         allowHover={true}
       >
         <MenuHandler>
-          <p>
+          <Typography as={"div"}>
             <ListItem
               className="flex items-center gap-2 py-2 pr-4"
               selected={isMenuOpen || isMobileMenuOpen}
@@ -82,11 +83,11 @@ function NavListMenu({ title, navListMenuData }: INavListMenuProps) {
                 }`}
               />
             </ListItem>
-          </p>
+          </Typography>
         </MenuHandler>
         {/* menu items  */}
-        <MenuList className="hidden rounded-xl lg:flex lg:flex-row justify-between px-14 py-10 items-start w-full">
-          <div className="grid grid-cols-3 xl:grid-cols-4 justify-between w-1/2 gap-y-8 place-items-start justify-items-center">
+        <MenuList className="hidden w-full items-start justify-between rounded-xl px-14 py-10 lg:flex lg:flex-row">
+          <div className="grid w-1/2 grid-cols-3 place-items-start justify-between justify-items-center gap-y-8 xl:grid-cols-4">
             {renderItems}
           </div>
           <div className="relative aspect-video h-full w-1/2">
@@ -110,9 +111,9 @@ function NavListMenu({ title, navListMenuData }: INavListMenuProps) {
 
 export function MyNavbar() {
   return (
-    <Navbar className="w-full px-4 py-2 max-w-[100%] !rounded-none hidden lg:flex">
+    <Navbar className="hidden w-full max-w-[100%] !rounded-none px-4 py-2 lg:flex">
       <div className="flex items-center justify-between text-blue-gray-900">
-        <div className="hidden lg:flex flex-1 justify-start">
+        <div className="hidden flex-1 justify-start lg:flex">
           {navbarData.map((item) => (
             <NavListMenu
               title={item.title}

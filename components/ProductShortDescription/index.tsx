@@ -22,7 +22,7 @@ export default function ProductShortDescription({
         <div className="flex flex-col gap-1">
           <Link
             href={"#"}
-            className="text-gray-600 text-sm transition-smooth hover:text-gray-900"
+            className="transition-smooth text-sm text-gray-600 hover:text-gray-900"
           >
             Laptops
           </Link>
@@ -35,7 +35,7 @@ export default function ProductShortDescription({
           <MyRating value={4} />
           <Link
             href={"#"}
-            className="text-gray-600 transition-smooth hover:text-gray-900"
+            className="transition-smooth text-gray-600 hover:text-gray-900"
           >
             (3 Customer Reviews)
           </Link>
@@ -57,7 +57,7 @@ export default function ProductShortDescription({
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 pt-8 pb-5">
+      <div className="flex flex-col gap-4 pb-5 pt-8">
         <div className="text-gray-600">
           <div className="flex flex-row gap-2">
             <p>Laptop screen size:</p>
@@ -78,7 +78,7 @@ export default function ProductShortDescription({
         {false ? (
           <div>
             <p className="mt-1.5 text-3xl text-red-500">Rs. {reducedPrice}</p>
-            <div className="flex flex-row gap-2 items-center">
+            <div className="flex flex-row items-center gap-2">
               <p className="text-lg text-gray-500 line-through">Rs.{price}</p>
               <p className="text-gray-900">-{discountPercentage}%</p>
             </div>

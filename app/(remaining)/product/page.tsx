@@ -1,11 +1,13 @@
+import { data } from "@/app/(home)/page";
 import ImageSlider from "@/components/ImageSlider/ImageSlider";
 import { MyTab } from "@/components/MyTab/MyTab";
 import ProductShortDescription from "@/components/ProductShortDescription";
+import ProductSlider from "@/components/ProductSlider/ProductSlider";
 
 export default function ProductPage() {
   return (
-    <div className="relative gap-16 flex flex-col">
-      <div className="flex flex-col md:flex-row gap-y-10 gap-x-10 justify-center">
+    <div className="relative flex flex-col gap-16">
+      <div className="flex flex-col justify-center gap-x-10 gap-y-10 md:flex-row">
         <div
           id="portal"
           className="absolute left-[520px] top-0 z-10 bg-gray-100"
@@ -16,7 +18,26 @@ export default function ProductPage() {
         <ProductShortDescription className="w-full md:w-[50%] lg:w-[60%]" />
       </div>
       <MyTab />
-      {/* <ProductSlider /> */}
+      <ProductSlider
+        title="Related Products"
+        data={data}
+        breakpoints={{
+          540: {
+            slidesPerView: 2,
+            grid: {
+              fill: "row",
+              rows: 2,
+            },
+          },
+          840: {
+            slidesPerView: 3,
+            grid: {
+              fill: "row",
+              rows: 2,
+            },
+          },
+        }}
+      />
     </div>
   );
 }

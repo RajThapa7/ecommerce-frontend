@@ -1,11 +1,10 @@
 import Image from "next/image";
-import React from "react";
-import { footerMenuData, socialLinkData } from "./socialLinkData";
 import logo from "public/elogo.png";
+import { footerMenuData, socialLinkData } from "./socialLinkData";
 
 export default function Footer() {
   return (
-    <footer className="bg-white">
+    <footer className="bg-gray-200">
       <div className="mx-auto w-full px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
@@ -73,7 +72,7 @@ export default function Footer() {
             <div className="text-center sm:text-left">
               <p className="text-lg font-medium text-gray-900">Find it Fast</p>
               <div className="flex flex-row justify-center sm:justify-start">
-                <ul className="mt-8 gap-y-4 gap-x-8 text-sm grid grid-cols-2">
+                <ul className="mt-8 grid grid-cols-2 gap-x-8 gap-y-4 text-sm">
                   {footerMenuData.map(({ id, link, title }) => (
                     <li key={id} className="">
                       <a
