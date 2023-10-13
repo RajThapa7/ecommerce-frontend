@@ -1,4 +1,6 @@
+"use client";
 import FlashCard from "@/components/FlashCard/FlashCard";
+import { MyTab } from "@/components/MyTab/MyTab";
 import ProductSlider from "@/components/ProductSlider/ProductSlider";
 import { IProductCard } from "@/types";
 
@@ -47,9 +49,50 @@ export const data: IProductCard[] = [
   },
 ];
 
+const Desc = () => <p>hello</p>;
+
+const tabData = [
+  {
+    label: "Top Rated",
+    value: "top-rated",
+    desc: (
+      <ProductSlider
+        isCategoryTitle={false}
+        title="Related Products"
+        breakpoints={{
+          540: {
+            slidesPerView: 2,
+            grid: {
+              fill: "row",
+              rows: 1,
+            },
+          },
+          840: {
+            slidesPerView: 4,
+            grid: {
+              fill: "row",
+              rows: 1,
+            },
+          },
+        }}
+        data={data}
+      />
+    ),
+  },
+  {
+    label: "Top Discount",
+    value: "top-discount",
+    desc: <Desc />,
+  },
+  {
+    label: "Top Selling",
+    value: "top-selling",
+    desc: <Desc />,
+  },
+];
 export default function Page() {
   return (
-    <div className="flex flex-col pt-10">
+    <div className="flex flex-col gap-10 pt-10">
       {/* card  */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 2xl:grid-cols-4">
         <FlashCard />
@@ -57,6 +100,8 @@ export default function Page() {
         <FlashCard />
         <FlashCard />
       </div>
+
+      <MyTab data={tabData} />
 
       <ProductSlider
         title="Related Products"

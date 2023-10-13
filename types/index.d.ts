@@ -6,4 +6,12 @@ interface IProductCard {
   tag?: string;
 }
 
-export type { IProductCard };
+interface ITabProps {
+  data: {
+    label: string;
+    value: string;
+    desc: React.ReactNode;
+  }[];
+}
+
+export type { IProductCard, ITabProps };

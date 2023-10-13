@@ -1,6 +1,6 @@
 "use client";
 
-import ReviewSection from "@/features/ReviewSection/ReviewSection";
+import { ITabProps } from "@/types";
 import {
   Tab,
   TabPanel,
@@ -9,23 +9,9 @@ import {
   TabsHeader,
 } from "@material-tailwind/react";
 import React from "react";
-import ProductDetail from "../ProductDetail/ProductDetail";
 
-export function MyTab() {
-  const [activeTab, setActiveTab] = React.useState("description");
-  const data = [
-    {
-      label: "Description",
-      value: "description",
-      desc: <ProductDetail />,
-    },
-
-    {
-      label: "Review",
-      value: "review",
-      desc: <ReviewSection />,
-    },
-  ];
+export function MyTab({ data }: ITabProps) {
+  const [activeTab, setActiveTab] = React.useState(data[0].value);
   return (
     <Tabs value={activeTab}>
       <TabsHeader
@@ -56,7 +42,7 @@ export function MyTab() {
           <TabPanel
             key={value}
             value={value}
-            className="rounded-lg border-[1px] border-gray-300 p-10 !font-medium !text-black"
+            className="rounded-lg border-[1px] border-gray-300 !font-medium !text-black"
           >
             {desc}
           </TabPanel>

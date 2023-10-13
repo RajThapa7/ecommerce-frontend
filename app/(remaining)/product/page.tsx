@@ -1,8 +1,24 @@
 import { data } from "@/app/(home)/page";
 import ImageSlider from "@/components/ImageSlider/ImageSlider";
 import { MyTab } from "@/components/MyTab/MyTab";
+import ProductDetail from "@/components/ProductDetail/ProductDetail";
 import ProductShortDescription from "@/components/ProductShortDescription";
 import ProductSlider from "@/components/ProductSlider/ProductSlider";
+import ReviewSection from "@/features/ReviewSection/ReviewSection";
+
+const tabData = [
+  {
+    label: "Description",
+    value: "description",
+    desc: <ProductDetail />,
+  },
+
+  {
+    label: "Review",
+    value: "review",
+    desc: <ReviewSection />,
+  },
+];
 
 export default function ProductPage() {
   return (
@@ -17,7 +33,7 @@ export default function ProductPage() {
         </div>
         <ProductShortDescription className="w-full md:w-[50%] lg:w-[60%]" />
       </div>
-      <MyTab />
+      <MyTab data={tabData} />
       <ProductSlider
         title="Related Products"
         data={data}

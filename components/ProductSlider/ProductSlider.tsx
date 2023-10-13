@@ -20,11 +20,13 @@ interface IProductSliderProps {
   title: string;
   data: IProductCard[];
   cardType?: "small" | "default";
+  isCategoryTitle?: boolean;
 }
 
 export default function ProductSlider({
   breakpoints,
   title,
+  isCategoryTitle = true,
   data,
   cardType = "default",
 }: IProductSliderProps) {
@@ -35,8 +37,10 @@ export default function ProductSlider({
   return (
     <div className="">
       <div className="relative">
-        <CategoryTitle title={title} />
-        <div className="absolute top-2 right-6 flex flex-row gap-2 items-center justify-center">
+        <div className={`${isCategoryTitle ? "visible" : "invisible"}`}>
+          <CategoryTitle title={title} />
+        </div>
+        <div className="absolute right-6 top-2 flex flex-row items-center justify-center gap-2">
           <button
             onClick={() => swiperRef.current?.swiper.slidePrev()}
             className={
@@ -77,12 +81,12 @@ export default function ProductSlider({
           clickable: true,
         }}
         modules={[Pagination, Navigation, Grid]}
-        className="!w-full !h-full !pb-10 !pt-6 !px-[2px]"
+        className="!h-full !w-full !px-[2px] !pb-10 !pt-6"
       >
         {data.map(({ img, price, title, reducedPrice, tag }) => (
           <SwiperSlide
             key={title}
-            className="!h-fit !opacity-100 !flex items-center justify-center"
+            className="!flex !h-fit items-center justify-center !opacity-100"
           >
             {cardType === "default" ? (
               <ProductCard {...{ img, price, title, reducedPrice, tag }} />
