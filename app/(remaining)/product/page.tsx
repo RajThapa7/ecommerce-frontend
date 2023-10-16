@@ -26,7 +26,7 @@ export default function ProductPage() {
       <div className="flex flex-col justify-center gap-x-10 gap-y-10 md:flex-row">
         <div
           id="portal"
-          className="absolute left-[520px] top-0 z-10 bg-gray-100"
+          className="absolute left-[520px] top-0 z-10 border-2 border-gray-300 bg-white object-cover"
         ></div>
         <div className="w-full md:w-[50%] lg:w-[40%]">
           <ImageSlider className="max-w-md" />
@@ -37,19 +37,20 @@ export default function ProductPage() {
       <ProductSlider
         title="Related Products"
         data={data}
+        spaceBetween={0}
         breakpoints={{
           540: {
-            slidesPerView: 2,
-            grid: {
-              fill: "row",
-              rows: 2,
-            },
-          },
-          840: {
             slidesPerView: 3,
             grid: {
               fill: "row",
-              rows: 2,
+              rows: 1,
+            },
+          },
+          840: {
+            slidesPerView: 4,
+            grid: {
+              fill: "row",
+              rows: 1,
             },
           },
         }}

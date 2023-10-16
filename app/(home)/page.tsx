@@ -59,9 +59,10 @@ const tabData = [
       <ProductSlider
         isCategoryTitle={false}
         title="Related Products"
+        spaceBetween={0}
         breakpoints={{
           540: {
-            slidesPerView: 2,
+            slidesPerView: 3,
             grid: {
               fill: "row",
               rows: 1,
@@ -107,17 +108,60 @@ export default function Page() {
         title="Related Products"
         breakpoints={{
           540: {
+            slidesPerView: 3,
+            grid: {
+              fill: "row",
+              rows: 1,
+            },
+          },
+          840: {
+            slidesPerView: 4,
+            grid: {
+              fill: "row",
+              rows: 1,
+            },
+          },
+        }}
+        spaceBetween={0}
+        data={data}
+      />
+      <ProductSlider
+        title="Trending Products"
+        cardType="small"
+        breakpoints={{
+          540: {
             slidesPerView: 2,
             grid: {
               fill: "row",
-              rows: 2,
+              rows: 1,
             },
           },
           840: {
             slidesPerView: 3,
             grid: {
               fill: "row",
-              rows: 2,
+              rows: 1,
+            },
+          },
+        }}
+        data={data}
+      />
+      <ProductSlider
+        title="Recommend for you"
+        spaceBetween={0}
+        breakpoints={{
+          540: {
+            slidesPerView: 3,
+            grid: {
+              fill: "row",
+              rows: 1,
+            },
+          },
+          840: {
+            slidesPerView: 4,
+            grid: {
+              fill: "row",
+              rows: 1,
             },
           },
         }}

@@ -20,8 +20,8 @@ export default function ProductCard({
 
   return (
     <Link
-      href={"/login"}
-      className="transition-smooth group relative block h-fit w-full max-w-sm overflow-hidden outline outline-1 outline-gray-100 hover:shadow-xl"
+      href={"/product"}
+      className="transition-smooth group relative block h-fit w-full max-w-sm overflow-hidden border-r-2 border-gray-200 hover:shadow-xl"
       onMouseOver={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
     >
@@ -32,7 +32,7 @@ export default function ProductCard({
               className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
               onClick={(e) => e.preventDefault()}
             >
-              <AiOutlineHeart className="text-lg text-gray-700" />
+              <AiOutlineHeart className="text-lg text-gray-500" />
             </button>
           </MyTooltip>
           <MyTooltip content="Quick View" placement="bottom">
@@ -40,7 +40,7 @@ export default function ProductCard({
               className="absolute end-4 top-12 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
               onClick={(e) => e.preventDefault()}
             >
-              <AiOutlineEye className="text-lg text-gray-700" />
+              <AiOutlineEye className="text-lg text-gray-500" />
             </button>
           </MyTooltip>
         </>
@@ -56,7 +56,7 @@ export default function ProductCard({
         />
       </div>
 
-      <div className="relative flex flex-row justify-between border-t-2 border-t-gray-200 bg-white p-6">
+      <div className="relative flex flex-row justify-between bg-white p-6">
         <div className="flex flex-col">
           <span className="w-fit whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium">
             {tag}

@@ -21,6 +21,7 @@ interface IProductSliderProps {
   data: IProductCard[];
   cardType?: "small" | "default";
   isCategoryTitle?: boolean;
+  spaceBetween?: number;
 }
 
 export default function ProductSlider({
@@ -29,6 +30,7 @@ export default function ProductSlider({
   isCategoryTitle = true,
   data,
   cardType = "default",
+  spaceBetween = 30,
 }: IProductSliderProps) {
   const swiperRef = useRef<Swiper>();
   const [isStart, setIsStart] = useState(true);
@@ -64,7 +66,7 @@ export default function ProductSlider({
         ref={swiperRef}
         slidesPerView={1}
         breakpoints={breakpoints}
-        spaceBetween={30}
+        spaceBetween={spaceBetween}
         onReachBeginning={() => setIsStart(true)}
         onReachEnd={() => setIsEnd(true)}
         onSlideChange={() => {

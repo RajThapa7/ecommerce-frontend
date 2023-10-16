@@ -15,28 +15,28 @@ const images = [
   {
     id: 0,
     alt: "image",
-    img: "https://swiperjs.com/demos/images/nature-1.jpg",
+    img: "https://transvelo.github.io/electro-html/2.0/assets/img/720X660/img1.jpg",
   },
   {
     id: 1,
     alt: "image",
-    img: "https://swiperjs.com/demos/images/nature-1.jpg",
+    img: "https://transvelo.github.io/electro-html/2.0/assets/img/720X660/img2.jpg",
   },
   {
     id: 2,
     alt: "image",
-    img: "https://swiperjs.com/demos/images/nature-1.jpg",
+    img: "https://transvelo.github.io/electro-html/2.0/assets/img/720X660/img3.jpg",
   },
 ];
 
 export default function ImageSlider({ className }: { className?: string }) {
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
   return (
     <div className={classNames(className, "h-fit")}>
       <Swiper
         spaceBetween={10}
-        thumbs={{ swiper: thumbsSwiper }}
+        thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"
       >
@@ -65,11 +65,11 @@ export default function ImageSlider({ className }: { className?: string }) {
                   },
                   largeImage: {
                     src: img,
-                    width: 1500,
-                    height: 1800,
+                    width: 1200,
+                    height: 750,
                   },
                   enlargedImageContainerDimensions: {
-                    width: "200%",
+                    width: "170%",
                     height: "150%",
                   },
                 }}
