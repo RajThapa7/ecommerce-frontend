@@ -15,7 +15,7 @@ export function Modal({
 
   return (
     <>
-      <Dialog open={open} handler={handleOpen}>
+      <Dialog open={open} size="lg" handler={handleOpen} className="px-6 py-10">
         {children}
       </Dialog>
     </>

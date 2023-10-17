@@ -29,7 +29,13 @@ const images = [
   },
 ];
 
-export default function ImageSlider({ className }: { className?: string }) {
+export default function ImageSlider({
+  className,
+  isMagnified = true,
+}: {
+  className?: string;
+  isMagnified?: boolean;
+}) {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
   return (
@@ -42,39 +48,54 @@ export default function ImageSlider({ className }: { className?: string }) {
       >
         {images.map(({ alt, id, img }) => (
           <SwiperSlide key={id}>
-            <div className="relative w-full pt-[100%] lg:hidden">
-              <Image
-                src={img}
-                alt="profile"
-                objectFit="fill"
-                fill
-                className="left-0 top-0 w-full object-fill"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-            </div>
-            <div className="hidden w-full lg:flex">
-              <ReactImageMagnify
-                {...{
-                  enlargedImagePortalId: "portal",
-                  smallImage: {
-                    alt: alt,
-                    isFluidWidth: true,
-                    src: img,
-                    sizes:
-                      "(max-width: 480px) 100vw, (max-width: 1200px) 30vw, 360px",
-                  },
-                  largeImage: {
-                    src: img,
-                    width: 1200,
-                    height: 750,
-                  },
-                  enlargedImageContainerDimensions: {
-                    width: "170%",
-                    height: "150%",
-                  },
-                }}
-              />
-            </div>
+            {!isMagnified ? (
+              <div className="relative w-full pt-[100%]">
+                <Image
+                  src={img}
+                  alt="profile"
+                  objectFit="fill"
+                  fill
+                  className="left-0 top-0 w-full object-fill"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
+            ) : (
+              <>
+                <div className="relative w-full pt-[100%] lg:hidden">
+                  <Image
+                    src={img}
+                    alt="profile"
+                    objectFit="fill"
+                    fill
+                    className="left-0 top-0 w-full object-fill"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="hidden w-full lg:flex">
+                  <ReactImageMagnify
+                    {...{
+                      enlargedImagePortalId: "portal",
+                      smallImage: {
+                        alt: alt,
+                        isFluidWidth: true,
+                        src: img,
+                        sizes:
+                          "(max-width: 480px) 100vw, (max-width: 1200px) 30vw, 360px",
+                      },
+                      largeImage: {
+                        src: img,
+                        width: 1200,
+                        height: 750,
+                      },
+                      enlargedImageContainerDimensions: {
+                        width: "170%",
+                        height: "150%",
+                      },
+                    }}
+                  />
+                </div>
+              </>
+            )}
           </SwiperSlide>
         ))}
       </Swiper>
