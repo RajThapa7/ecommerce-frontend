@@ -122,7 +122,7 @@ export default function Page() {
             },
           },
         }}
-        spaceBetween={0}
+        spaceBetween={10}
         data={data}
       />
       <ProductSlider

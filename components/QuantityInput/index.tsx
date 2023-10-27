@@ -1,13 +1,13 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import MyButton from "../Button/Button";
 
 export default function QuantityInput() {
   const [number, setNumber] = useState(1);
   return (
-    <div className="w-fit flex flex-row items-center gap-2">
-      <p>Quantity</p>
-      <div className="flex items-center border border-gray-200 rounded">
+    <div className="flex w-fit flex-row items-center gap-2">
+      {/* <p>Quantity</p> */}
+      <div className="flex items-center rounded border border-gray-200">
         <MyButton
           onClick={() => setNumber((prev) => --prev)}
           disabled={number == 1}
@@ -20,8 +20,9 @@ export default function QuantityInput() {
           type="number"
           id="Quantity"
           value={number}
-          disabled
-          className="h-10 w-16 border-transparent text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+          // disabled
+          onChange={(e) => setNumber(Number(e.target.value))}
+          className="transition-smooth h-10 w-16 border-transparent text-center outline-none [-moz-appearance:_textfield] focus:ring-1 focus:ring-blue-400 sm:text-sm [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none "
         />
 
         <MyButton

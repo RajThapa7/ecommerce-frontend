@@ -1,6 +1,7 @@
 "use client";
 
 import { ITabProps } from "@/types";
+import classNames from "@/utils/classNames";
 import {
   Tab,
   TabPanel,
@@ -10,7 +11,7 @@ import {
 } from "@material-tailwind/react";
 import React from "react";
 
-export function MyTab({ data }: ITabProps) {
+export function MyTab({ data, className }: ITabProps) {
   const [activeTab, setActiveTab] = React.useState(data[0].value);
   return (
     <Tabs value={activeTab}>
@@ -29,7 +30,7 @@ export function MyTab({ data }: ITabProps) {
             className={`
               ${
                 activeTab === value
-                  ? "font-semibold text-gray-900"
+                  ? " font-semibold text-gray-900"
                   : "font-medium"
               } w-fit pb-2 text-lg`}
           >
@@ -37,12 +38,12 @@ export function MyTab({ data }: ITabProps) {
           </Tab>
         ))}
       </TabsHeader>
-      <TabsBody className="-mt-[2px] !p-0">
+      <TabsBody className={classNames(className, "mt-[1px]")}>
         {data.map(({ value, desc }) => (
           <TabPanel
             key={value}
             value={value}
-            className="rounded-lg border-[1px] border-gray-300 !font-medium !text-black"
+            className="rounded-lg border-[0px] border-gray-300 !font-medium !text-black"
           >
             {desc}
           </TabPanel>

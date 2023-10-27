@@ -22,8 +22,8 @@ const tabData = [
 
 export default function ProductPage() {
   return (
-    <div className="relative flex flex-col gap-16">
-      <div className="flex flex-col justify-center gap-x-10 gap-y-10 md:flex-row">
+    <div className="relative flex flex-col gap-14">
+      <div className="flex flex-col justify-center gap-x-10 gap-y-10 bg-white px-4 py-6 md:flex-row">
         <div
           id="portal"
           className="absolute left-[520px] top-0 z-10 border-2 border-gray-300 bg-white object-cover"
@@ -33,28 +33,30 @@ export default function ProductPage() {
         </div>
         <ProductShortDescription className="w-full md:w-[50%] lg:w-[60%]" />
       </div>
-      <MyTab data={tabData} />
-      <ProductSlider
-        title="Related Products"
-        data={data}
-        spaceBetween={0}
-        breakpoints={{
-          540: {
-            slidesPerView: 3,
-            grid: {
-              fill: "row",
-              rows: 1,
+      <MyTab data={tabData} className="bg-white p-10" />
+      <div className="bg-transparent">
+        <ProductSlider
+          title="Related Products"
+          data={data}
+          spaceBetween={10}
+          breakpoints={{
+            540: {
+              slidesPerView: 3,
+              grid: {
+                fill: "row",
+                rows: 1,
+              },
             },
-          },
-          840: {
-            slidesPerView: 4,
-            grid: {
-              fill: "row",
-              rows: 1,
+            840: {
+              slidesPerView: 4,
+              grid: {
+                fill: "row",
+                rows: 1,
+              },
             },
-          },
-        }}
-      />
+          }}
+        />
+      </div>
     </div>
   );
 }

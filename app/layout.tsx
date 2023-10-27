@@ -15,7 +15,7 @@ export default function Layout({ children }: PropsWithChildren) {
   return (
     <html className={montserrat.variable}>
       <body>
-        <div className="">
+        <div className="bg-gray-50">
           <SearchBar />
           <MyNavbar />
           <div>{children}</div>

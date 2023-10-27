@@ -1,7 +1,19 @@
 "use client";
 
-import { Input, InputStylesType } from "@material-tailwind/react";
+import { Input } from "@material-tailwind/react";
+import { color, size } from "@material-tailwind/react/types/components/input";
+import { InputHTMLAttributes } from "react";
 
-export default function MyInput(props: InputStylesType) {
-  return <Input crossOrigin={undefined} color="blue" {...props.defaultProps} />;
+type InputType = {
+  [key in keyof InputHTMLAttributes<HTMLInputElement>]: key extends "size"
+    ? size
+    : key extends "color"
+    ? color
+    : InputHTMLAttributes<HTMLInputElement>[key];
+} & { className?: string };
+
+export default function MyInput(props: InputType) {
+  return (
+    <Input crossOrigin={undefined} {...props} className={props.className} />
+  );
 }

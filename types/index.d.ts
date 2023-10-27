@@ -12,6 +12,7 @@ interface ITabProps {
     value: string;
     desc: React.ReactNode;
   }[];
+  className?: string;
 }
 
 export type { IProductCard, ITabProps };

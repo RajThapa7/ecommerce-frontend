@@ -27,7 +27,7 @@ const MyButton = ({
       variant={variant}
       className={classNames(
         className,
-        "flex justify-center items-center px-4 py-1 gap-x-2"
+        "flex items-center justify-center gap-x-2 px-4 py-1",
       )}
     >
       {children}

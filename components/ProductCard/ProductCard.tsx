@@ -41,7 +41,7 @@ export default function ProductCard({
       <ProductModal {...{ open, setOpen }} />
       <div
         onClick={handleParentClick}
-        className="transition-smooth group relative block h-fit w-full max-w-sm overflow-hidden border-r-2 border-gray-200 hover:shadow-xl"
+        className="transition-smooth group relative block h-fit w-full max-w-sm overflow-hidden border-r-0 border-gray-200 bg-white hover:shadow-xl"
         onMouseOver={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
       >
@@ -82,13 +82,13 @@ export default function ProductCard({
               {tag}
             </span>
 
-            <h3 className="transition-smooth mt-4 text-lg font-semibold text-blue-600 underline decoration-white group-hover:decoration-blue-600">
+            <h3 className="transition-smooth mt-4 text-left text-lg font-semibold text-blue-600 underline decoration-white group-hover:decoration-blue-600">
               {title}
             </h3>
 
             {reducedPrice ? (
-              <>
-                <p className="ml-1.5 mt-1.5 text-left text-lg text-red-500">
+              <div className="mt-1.5 inline-flex gap-2">
+                <p className="text-left text-lg text-red-500">
                   Rs.{reducedPrice}
                 </p>
                 <div className="flex flex-row items-center justify-center gap-2">
@@ -99,9 +99,9 @@ export default function ProductCard({
                     -{discountPercentage}%
                   </p>
                 </div>
-              </>
+              </div>
             ) : (
-              <p className="ml-1.5 mt-1.5 text-left text-lg text-gray-700">
+              <p className="mt-1.5 text-left text-lg text-gray-700">
                 Rs.{price}
               </p>
             )}
