@@ -14,7 +14,7 @@ export default function Cart() {
   return (
     <div className="flex flex-col gap-4 lg:flex-row">
       <div className="flex flex-1 flex-col">
-        <div className="mb-4 flex flex-row justify-between bg-white py-1 pr-2">
+        <div className="mb-4 flex flex-row justify-between bg-white py-1 pr-2 shadow-sm">
           <div className="inline-flex items-center">
             <MyCheckbox />
             <p className="text-xs text-gray-800">SELECT ALL ITEMS</p>
@@ -30,7 +30,7 @@ export default function Cart() {
 
         {Array.from({ length: 2 }).map(() => (
           <div
-            className="bg flex h-fit flex-1 flex-col items-start gap-6 border-b-2 bg-white pb-2 pr-6 pt-5 last:border-b-0 md:flex-row"
+            className="bg flex h-fit flex-1 flex-col items-start gap-6 border-b-2 bg-white pb-2 pr-6 pt-5 shadow-sm last:border-b-0 md:flex-row"
             key={"1"}
           >
             <div className="flex min-w-[50%] flex-row gap-2">
@@ -89,8 +89,8 @@ export default function Cart() {
         ))}
       </div>
 
-      <div className="flex h-fit w-full flex-col gap-3 bg-white p-4 lg:w-fit">
-        <p className="text-lg font-semibold text-gray-800">Order Summary</p>
+      <div className="flex h-fit w-full flex-col gap-3 bg-white p-4 shadow-sm lg:w-fit">
+        <p className="text-md font-semibold text-gray-800">Order Summary</p>
         <div className="flex flex-row justify-between">
           <p className="text-sm text-gray-800">Subtotal (0 items)</p>
           <p className="">Rs. 13,101</p>

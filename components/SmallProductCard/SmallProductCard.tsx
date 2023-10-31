@@ -68,16 +68,16 @@ export default function SmallProductCard({
 
           {reducedPrice ? (
             <>
-              <p className="ml-1.5 mt-1.5 text-left text-lg text-red-500">
+              <p className="mt-1.5 text-left text-lg text-red-500">
                 Rs.{reducedPrice}
               </p>
-              <div className="flex flex-row items-center justify-center gap-2">
+              <div className="flex flex-row items-center justify-start gap-2">
                 <p className="text-sm text-gray-500 line-through">Rs.{price}</p>
                 <p className="text-sm text-gray-900">-{discountPercentage}%</p>
               </div>
             </>
           ) : (
-            <p className="ml-1.5 mt-1.5 text-left text-lg text-gray-700">
+            <p className=" mt-1.5 text-left text-lg text-gray-700">
               Rs.{price}
             </p>
           )}

@@ -87,7 +87,10 @@ function NavListMenu({ title, navListMenuData }: INavListMenuProps) {
         </MenuHandler>
         {/* menu items  */}
         <MenuList className="hidden w-full items-start justify-between rounded-xl px-14 py-10 lg:flex lg:flex-row">
-          <div className="grid w-1/2 grid-cols-3 place-items-start justify-between justify-items-center gap-y-8 xl:grid-cols-4">
+          <div
+            className="grid w-1/2 grid-cols-3 place-items-start justify-between justify-items-center gap-y-8 xl:grid-cols-4"
+            tabIndex={-1}
+          >
             {renderItems}
           </div>
           <div className="relative aspect-video h-full w-1/2">
